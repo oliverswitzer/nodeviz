@@ -5,11 +5,8 @@ import "phoenix_html"
 import * as d3 from "d3";
 import userSocket from "./user_socket";
 
-let nodes: {string: number}[] = []
 
 const nodeChannel = userSocket.channel("nodes", {})
 nodeChannel.join()
-  .receive("ok", resp => { console.log("Joined successfully", nodes = resp) })
+  .receive("ok", _resp => nodeChannel.push("get_nodes", {}).receive("ok", (reply) => {window.nodes = reply}))
   .receive("error", resp => { console.log("Unable to join", resp) })
-
-

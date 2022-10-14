@@ -11,7 +11,6 @@
     "assets/js/**/*"
   ],
   "exclude": [
-    "assets/node_modules",
     "**/*.spec.ts"
   ]
 }

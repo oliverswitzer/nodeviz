@@ -15,7 +15,8 @@ defmodule Nodeviz.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Nodeviz.PubSub},
       # Start the Endpoint (http/https)
-      NodevizWeb.Endpoint
+      NodevizWeb.Endpoint,
+      Nodeviz.NodeMonitor
       # Start a worker by calling: Nodeviz.Worker.start_link(arg)
       # {Nodeviz.Worker, arg}
     ]

@@ -9,6 +9,7 @@
   "author": "Oliver Switzer",
   "license": "MIT",
   "dependencies": {
+    "@types/phoenix": "^1.5.4",
     "d3": "^7.6.1"
   }
 }
