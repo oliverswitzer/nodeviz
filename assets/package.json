@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typecheck": "tsc --project ../.tsconfig.json --watch"
   },
   "author": "Oliver Switzer",
   "license": "MIT",
   "dependencies": {
     "@types/phoenix": "^1.5.4",
-    "d3": "^7.6.1"
+    "d3": "^7.6.1",
+    "prettier": "^2.7.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.25.0"
   }
 }

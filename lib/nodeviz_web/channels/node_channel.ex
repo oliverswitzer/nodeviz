@@ -2,12 +2,12 @@ defmodule NodevizWeb.NodeChannel do
   use NodevizWeb, :channel
 
   alias Nodeviz.NodeMonitor
+  alias NodevizWeb.Endpoint
 
   @channel "nodes"
 
   def broadcast_node(node_name) do
-    # TODO: Why is dialyzer mad
-    broadcast(@channel, "new_node", node_name)
+    Endpoint.broadcast(@channel, "new_node", node_name)
   end
 
   @impl true
@@ -17,8 +17,7 @@ defmodule NodevizWeb.NodeChannel do
 
   @impl true
   def handle_in("get_nodes", _payload, socket) do
-    # nodes = NodeMonitor.current_nodes()
-    nodes = []
+    nodes = NodeMonitor.current_nodes()
 
     {:reply, {:ok, %{nodes: nodes}}, socket}
   end
