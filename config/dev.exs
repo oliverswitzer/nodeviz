@@ -28,7 +28,7 @@ config :nodeviz, NodevizWeb.Endpoint,
   secret_key_base: "gCOnMRf3+NE7IfBmzDb0/l+s1yqpWGB9WS8f2Slat/ldTdkPmksTpqmQOZ0rCqE9",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    node: ["esbuild.js", "--watch", cd: Path.expand("../assets", __DIR__)],
     npm: ["run", "typecheck", cd: Path.expand("../assets", __DIR__)]
   ]
 
