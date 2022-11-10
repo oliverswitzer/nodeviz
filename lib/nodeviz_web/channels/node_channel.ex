@@ -4,11 +4,17 @@ defmodule NodevizWeb.NodeChannel do
   alias Nodeviz.NodeMonitor
   alias NodevizWeb.Endpoint
 
+  require Logger
+
   @channel "nodes"
 
-  def broadcast_node(node_name) do
-    Endpoint.broadcast(@channel, "new_node", node_name)
+  def refresh_nodes(nodes) do
+    log("Change in node topology, broadcasting to everyone")
+
+    Endpoint.broadcast(@channel, "refresh_nodes", %{nodes: nodes})
   end
+
+  defp log(msg), do: Logger.info("[#{node()}][#{inspect(__MODULE__)}]: #{msg}")
 
   @impl true
   def join(@channel, _payload, socket) do
