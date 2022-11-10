@@ -1,16 +1,7 @@
 {
   "compilerOptions": {
-    "module": "system",
-    "noImplicitAny": true,
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "outFile": "priv/static/assets/app.js",
-    "sourceMap": true
-  },
-  "include": [
-    "assets/js/**/*"
-  ],
-  "exclude": [
-    "**/*.spec.ts"
-  ]
+    "baseUrl": "./",
+    "noEmit": true,
+    "paths": {}
+  }
 }
