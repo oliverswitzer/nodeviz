@@ -1,19 +1,21 @@
 # Nodeviz
 
-To start your Phoenix server:
+POC for visualizing erlang nodes and processes, inspired by [Visualixir](https://github.com/koudelka/visualixir)
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+# Running it
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Try out visualizing multiple nodes:
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+1. From one terminal, run `PORT=4001 iex --sname nodeviz1 --cookie foo -S mix phx.server`
 
-## Learn more
+2. From another terminal run `PORT=4002 iex --sname nodeviz2 --cookie foo -S mix phx.server`
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+3. Visit `localhost:4001`
+
+4. From the iex session of `nodeviz1`:
+
+```
+iex(nodeviz1@<your computer>)8> Node.connect(:"nodeviz2@<your computer>")
+```
+
+You should see a node appear in the force graph.
