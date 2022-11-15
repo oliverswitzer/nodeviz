@@ -17,6 +17,11 @@ defmodule NodevizExporter.NodeMonitor do
   def init(_opts) do
     :ok = :net_kernel.monitor_nodes(true)
 
+    Node.list()
+    |> Enum.each(fn external_node ->
+      log(%{type: "NODE_UP", node: external_node, from_init: true})
+    end)
+
     {:ok, %{}}
   end
 
