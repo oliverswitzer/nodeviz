@@ -1,6 +1,6 @@
-defmodule Exporter do
+defmodule NodevizExporter do
   @moduledoc """
-  Documentation for `Exporter`.
+  Documentation for `NodevizExporter`.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule Exporter do
 
   ## Examples
 
-      iex> Exporter.hello()
+      iex> NodevizExporter.hello()
       :world
 
   """
